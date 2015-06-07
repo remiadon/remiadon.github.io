@@ -4,4 +4,9 @@ title:  "web crawler"
 date:   2015-03-01
 categories: jekyll python
 ---
-h3 yolo
+
+
+{% highlight python %}
+def init():
+  print 'yolo'
+{% endhighlight %}
