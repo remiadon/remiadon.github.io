@@ -92,8 +92,9 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 2px solid $grey-color-light;
     padding: $spacing-unit 0;
+    background-color: #ECF0F1;
 }
 
 .footer-heading {
@@ -162,6 +163,8 @@
  * Page content
  */
 .page-content {
+    // min-height: 80%;
+    height: 60vh;
     padding: $spacing-unit 0;
 }
 
