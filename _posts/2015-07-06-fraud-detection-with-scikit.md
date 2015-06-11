@@ -3,7 +3,7 @@ layout: post
 title:  "fraud detection with scikit"
 date:   2015-06-07
 categories: jekyll python
-tags: -machine
+tags: [python, machine-learning]
 ---
 
 <h2>Introdiction</h2>
