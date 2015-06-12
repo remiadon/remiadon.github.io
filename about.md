@@ -2,6 +2,7 @@
 layout: page
 permalink: /about/
 face: /img/face.png
+title: About
 ---
 
 
