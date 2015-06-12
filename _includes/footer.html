@@ -18,6 +18,9 @@
           <i class="fa fa-linkedin"></i>&nbsp;&nbsp;<span><a href="https://fr.linkedin.com/in/{{ site.github_username }}" target="_blank">{{ site.github_username }}</a></span>
         </li>
         {% endif %}
+        <li>
+          <i class="fa fa-rss"></i>&nbsp;&nbsp;<span><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">RSS</a></span>
+        </li>
         <!-- {% if site.twitter_username %}
         <li><i class="fa fa-twitter"></i><span><a href="https://twitter.com/{{ site.twitter_username }}">&nbsp;&nbsp;{{ site.twitter_username }}</a></span>
         </li>
