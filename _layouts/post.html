@@ -4,19 +4,9 @@ comments: true
 ---
 
 <div class="post">
-
-  <header class="post-header">
-	<h1 class="post-title">{{ page.title }}</h1>
-	<p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-	{{ content }}
-  </article>
-
-  {% assign post = page %}
+{% assign post = page %}
 	{% if post.tags.size > 0 %}
-	    {% capture tags_content %}Posted in {% if post.tags.size == 1 %}<i class="fa fa-tag"></i>{% else %}<i class="fa fa-tags"></i>{% endif %}: {% endcapture %}
+	    {% capture tags_content %} {% if post.tags.size == 1 %}<i class="fa fa-tag"></i>{% else %}<i class="fa fa-tags"></i>{% endif %}{% endcapture %}
 	    {% for post_tag in post.tags %}
 	        {% for data_tag in site.data.tags %}
 	            {% if data_tag.slug == post_tag %}
@@ -32,8 +22,16 @@ comments: true
 	    {% assign tags_content = '' %}
 	{% endif %}
 
+  <header class="post-header">
+	<h1 class="post-title">{{ page.title }}</h1>
+	<p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src='/img/tag.png' style='width:20px; height:20px;'></img>{{ tags_content }}
+	</p>
+  </header>
 
-  <p id="post-meta">{{ tags_content }}</p>
+  <article class="post-content">
+	{{ content }}
+  </article>
 
   <div id="disqus_thread"></div>
 	<script type="text/javascript">
