@@ -7,7 +7,7 @@ layout: page
 	<h4>
     {% if site.tags[page.tag] %}
         {% for post in site.tags[page.tag] %}
-            <a href="{{ post.url }}/">{{ post.title }}</a>
+            <a href="{{ post.url }}">{{ post.title }}</a>
             <br>
         {% endfor %}
     {% else %}
