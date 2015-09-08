@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "fraud detection with scikit"
+title:  "fraud detection with Scikit"
 date:   2015-06-07
 categories: jekyll python
 tags: [python, machine-learning]
