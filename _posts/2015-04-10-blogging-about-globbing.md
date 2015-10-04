@@ -14,7 +14,8 @@ The implementation bellow is just a simple parser, based on character per charac
 
 To be fair,the best way possible to implement globbing is using `finite automatas`; check the further readings for more details about it.
 
-The match is performed two given strings : a `pattern` and a name to be matched
+The match is performed two given strings : a `pattern` and a name to be matched.
+
 A possible pseudo-code prototype for the main function would be
 {% highlight python %}
 bool match(str pattern, str name)
@@ -33,6 +34,8 @@ Going character per character, while the current character in the pattern is not
 If the current one is a <span style="color:#c7254e;">&#63;</span>, it actually matches any characters, so we simply move forward, nothing checked.
 
 <h3>Star</h3>
+The star (not to be confused with the Kleene star), is the crux of our problem.\\
+
 
 
 <h3>Characters sets</h3>
