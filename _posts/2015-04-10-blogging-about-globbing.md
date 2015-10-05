@@ -25,12 +25,12 @@ Also, only the two following core features will be discussed here :
 </ul>
 
 
-<h3>Basic characters and question mark</h3>
+<h3>Question mark</h3>
 Going character per character, while the current character in the pattern is not a question mark, and it matches the current character in the string, we move forward.
 
 If the current one is a <span style="color:#c7254e;">&#63;</span>, it actually matches any characters, so we simply move forward, nothing checked.
 
-In Python : 
+<!-- In Python : 
 {% highlight python %}
 i = 0
 for p in pattern:
@@ -38,9 +38,9 @@ for p in pattern:
 		i += 1
 	if p is '?':
 		i += 1
-return (i is len(name))		# check name not longer than pattern
+return (i is len(name))		# reach end
 {% endhighlight %}
-
+ -->
 <h3>Star</h3>
 The star (not to be confused with the Kleene star), is the crux of our problem.
 
