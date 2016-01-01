@@ -6,14 +6,16 @@ categories: jekyll recursive
 tags: [recursive]
 ---
 
-<h3>Introduction</h3>
-Today I will introduce a short and pretty fast way to perform a `Unix globbing` match. <!-- If you are not familiar with making use of glob patterns, <a href="https://en.wikipedia.org/wiki/Glob_(programming)" target="_blank">here</a> is a wiki.\\ -->The implementation bellow is just a simple parser, based on character per character (not exactly, as described later on) treatment.
+Today I will introduce a short and pretty fast way to perform a `Unix globbing` match.
+For those who are not quit familiar with it, globbing is mainly used from the shell,
+as soon as one needs to match a specific pattern; here the a wiki : <a href="https://en.wikipedia.org/wiki/Glob_(programming)" target="_blank">here</a> is a wiki.\\
+The implementation bellow is just a simple parser, based on character per character (well, not exactly...) treatment.
 
 To be fair, the best way possible to implement globbing is probably using `finite automatas`; cf. further readings for more details about this type of implementation.
 
-The match is a filename match, performed on two given strings : `a pattern and a name to be matched`.
+The match is a filename match, performed on two given strings : a pattern and a name to be matched.
 
-A possible pseudo-code prototype for the main function would be
+A possible prototype for the main function would be
 {% highlight python %}
 bool match(str pattern, str name)
 {% endhighlight %}
@@ -30,7 +32,6 @@ Going character per character, while the current character in the pattern is not
 
 If the current one is a <span style="color:#c7254e;">&#63;</span>, it actually matches any characters, so we simply move forward, nothing checked.
 
-<!-- In Python : 
 {% highlight python %}
 i = 0
 for p in pattern:
@@ -40,17 +41,9 @@ for p in pattern:
 		i += 1
 return (i is len(name))		# reach end
 {% endhighlight %}
- -->
+
 <h3>Star</h3>
 The star (not to be confused with the Kleene star), is the crux of our problem.
-
-
-
-
-
-<h3>Characters sets</h3>
-
-
 
 
 
