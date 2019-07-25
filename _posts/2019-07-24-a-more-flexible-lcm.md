@@ -7,13 +7,13 @@ tags: [pattern-mining]
 ---
 
 ## Context
-For the last 2 years I have been reading papers about pattern minining. Although this field of data mining has only grown very few popularity in the last decades, as compared to Machine Learning for example, I found the existing algorithms could bring a lot of value on the table in practice.
+For the last 2 years I have been reading papers about pattern minining. Although this field of data mining has only received little attention in the last decades, as compared to Machine Learning for example, I found the existing algorithms could bring a lot of value on the table in practice.
 
 One of the main algorithm for generic purpose pattern mining is LCM, short for `Linear Closed itemset Miner`
-While reading about this algorithm in the papers presented by [Alexandre Termier](http://people.irisa.fr/Alexandre.Termier/) , there seemd to be a practial limitation ruling the existing algorithms.
+While reading about this algorithm in the papers presented by [Alexandre Termier](http://people.irisa.fr/Alexandre.Termier/) , there seemd to be practial limitations ruling the existing algorithms.
 
 [This paper's preliminaries section](https://tel.archives-ouvertes.fr/tel-01006195/document) gives a good overview of the principles that are common to almost every (re)-implementation of LCM you can find.
-Amongst a wonderful set of concepts is what is called a `reduced dataset`. Basicaly a reduced dataset is a slice of the original dataset.
+Amongst the core concepts is what is called a `reduced dataset`. Basicaly a reduced dataset is nothing more than a slice a slice of the original dataset; that is to say of subset of the original transactions.
 
 ------------
 
