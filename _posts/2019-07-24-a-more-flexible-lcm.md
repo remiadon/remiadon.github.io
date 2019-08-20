@@ -13,7 +13,7 @@ One of the main algorithm for generic purpose pattern mining is LCM, short for `
 While reading about this algorithm in the papers presented by [Alexandre Termier](http://people.irisa.fr/Alexandre.Termier/) , there seemd to be practial limitations ruling the existing algorithms.
 
 [This paper's preliminaries section](https://tel.archives-ouvertes.fr/tel-01006195/document) gives a good overview of the principles that are common to almost every (re)-implementation of LCM you can find.
-Amongst the core concepts is what is called a `reduced dataset`. Basicaly a reduced dataset is nothing more than a slice a slice of the original dataset; that is to say of subset of the original transactions.
+Amongst the core concepts is what is called a `reduced dataset`. Basicaly a reduced dataset is a slice of the original dataset; that is to say of subset of the original transactions.
 
 ------------
 
@@ -66,7 +66,7 @@ db.iloc[item_to_tids[4]]
 Unfortunately, If we implement this algorithm keeping the dependency with pandas, we will have many calls to `.iloc`.
 What the original LCM implementation does is it access a reduced dataset before counting occurences of each item in this reduced dataset, and this operation is done many times ...
 
-For example, if we just discovered the 2-length itemset {2, 4} and we want to check for its closeness (*first parent test*), we have to do something like
+For example, if we just extended a 1-length item to obtain the 2-length itemset *{2, 4}*, and we want to check for its closeness (*first parent test*), we have to do something like
 
 {% highlight python %}
 new_tids = item_to_tids[2] & item_to_tids[4]
@@ -79,17 +79,15 @@ for transaction in recuced_db:
 -----------------------
 
 ## The state of research
-When they write papers, researches make lots of assumptions. While these assumptions may not seem really binding at first sight, in practice some can make your life a lot harder.
+Writing papers implies making assumptions, as a scientific basis on which the rest relies on. While these assumptions may not seem really binding at first sight, in practice they can narrow down the possibilities.
 
-As I said, the original definition of `LCM assumes you can access subsets of the original data very quickly given a set of positions`. This may be true if all of it fits in a small pd.Series (as seen above), but in modern applications, this is not always easy to ensure, because your data may be
+The original definition of `LCM assumes you can access subsets of the original data very quickly given a set of positions`. This may be true if all of it fits in a small pd.Series (as seen above), but in modern applications, this is not always easy to ensure, because your data may be
 
 1. `Too big to hold in memory`. Or even worse, your data may be accessible for a limited time lapse, as in streaming workflows Having access to the original dataset during the entire run of the algorithm means extra memory costs which are not needed.
 
 2. `distributed` (or partiionned), positional indexing is not something easy to ensure. As an example, the [dask API](https://docs.dask.org/en/latest/dataframe-indexing.html#positional-indexing) voluntarily bans positional indexing over rows.
 
 In addition to this the above pseudo code emphasize how much we need of Counters. We have to count items everytime we dig into a subset, again and again ...
-
-There may be a better way
 
 ----------------------
 
@@ -107,3 +105,9 @@ Considering the painpoints I have mentioned, the ideal algorithm should :
 4. Of course, keep running times and memory consumption competing with standards pattern mining algorithms
 
 While all this seems a little ambitious, there is pretty much no doubt it's an interesting challenge to take on
+
+
+### Ressources
+* [the HLCM paper](http://lig-membres.imag.fr/termier/HLCM/hlcm.pdf)
+* [Closed and maximal itemsets](http://eacharya.inflibnet.ac.in/data-server/eacharya-documents/53e0c6cbe413016f23443704_INFIEP_33/85/LM/33-85-LM-V1-S1__maximal_and_closed_itemsets.pdf)
+* [pandas iloc](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#selection-by-position)
