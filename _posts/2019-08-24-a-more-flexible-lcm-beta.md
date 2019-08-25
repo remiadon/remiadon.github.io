@@ -76,8 +76,6 @@ For the main part, we keep it the same way as in the original
 HLCM paper. Only the LCM function will change (line 3)
 ![LCM main function](/img/LCM_main.png)
 
-Something we will use to build our implemenation is
-
 
 #### LCM function
 Below is a compaison between the original inner algorithm as described in the paper
