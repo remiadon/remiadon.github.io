@@ -89,8 +89,8 @@ and my implemenation.
 
 #### Main modifications
 * We do not have a CDB anymore (line 1). Instead we use RoaringBitmaps to find every item
-which transactions ids are subsets of the current itemset's transaction ids. As a result, more items
-will be passed to the `max` function : we expect this implemenation to be slow at computing this max
+which transactions ids are subsets of the current itemset's transaction ids. As a result,
+we get the exact same set of items that in the original paper
 * The `get_new_scope_keys` function make several calls to `RoaringBitmap.intersection_len`,
 and corresponds to *`Cand`* in the paper (line 6)
 
