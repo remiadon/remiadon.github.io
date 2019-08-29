@@ -168,6 +168,11 @@ RAPIDS is decoupled into many sub-projets, all referring to different « levels 
 * cuML – a scikit-learn like API : for accelerated machine learning
 * dask-cuDF – to make dask.DataFrame internally manage cuDf.DataFrames, and run many GPUs, either on a single machine or on a cluster of machines. Because they rely on cuDf, they only support a subset of the dask.DataFrame API
 
+-----
+Distributing cuPy arrays with dask now becomes
+
+![Alt Text](/img/sklearn-consortium/distributed-GPU.png)
+
 -------
 
 ### Low level considerations : The curse of modern data science
@@ -205,7 +210,11 @@ Passing a CuPy array to a structure requiring Numpy-like input will only require
 -----
 
 ### CuML Roadmap
-![](/img/sklearn-consortium/cuml-roadmap.gif)
+![Alt Text](/img/sklearn-consortium/cuml-1.png)
+
+------
+
+![Alt Text](/img/sklearn-consortium/cuml-2.png)
 
 -----------
 ----------
