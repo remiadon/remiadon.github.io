@@ -51,9 +51,9 @@ But for now let’s define the main features, and limits, encountered when one w
 
 scikit-learn, as we know, is really good at making predictions. Once the model fitted, it is easy to get a new piece of data and send it to the `predict` function. Unfortunatly, scikit-learn’s design make things not really optimal in some specific use-cases.
 
-Indeed, the predict function is made to receive a numpy array, containing many elements, and return a numpy array, with the same number of elements : this is a batch prediction. This specific design gives you optimal runtimes when operating on a big number of entries : the more entries you have, the better you take advantage of vectorization.
+Indeed, the predict function is made to receive a numpy array, containing many elements, and return a numpy array, with the same number of elements : this is a batch prediction. This specific design gives you optimal runtimes when operating on a big number of entries : the more entries you have, the better you may take advantage of vectorization.
 
-On embedded systems for example, it is not always a good idea to buffer elements from a « stream“ before sending them to the predictmethod. This typical receive/buffer/predict workflow is not something to be considered in some cases. What could be done instead is sending every new entry into the mode/pipe, to get its corresponding predictions, in an online fashion.
+On embedded systems for example, it is not always a good idea to buffer elements from a "stream" before sending them to the predict method. This typical receive/buffer/predict workflow is not something to be considered in some cases. What could be done instead is sending every new entry into the model/pipe, to get its corresponding predictions, in an online fashion.
 
 [sklearn-ONNX](https://github.com/onnx/sklearn-onnx) may be the solution for that.
 
